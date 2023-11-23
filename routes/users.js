@@ -7,7 +7,7 @@ const {
 router.post('/register', register)
 // LOGIN USER
 router.post('/login', login)
-// GET LOGGED IN USER DATA
+// GET LOGGED IN USER EVENT DATA
 router.get('/user', getUserData)
 // UPDATE USER 
 router.put('/update-user/:id', update)

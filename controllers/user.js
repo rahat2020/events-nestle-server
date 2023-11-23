@@ -1,3 +1,4 @@
+const Events = require('../models/Events');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
@@ -29,6 +30,7 @@ const register = async (req, res, next) => {
         // console.log(err)
     }
 }
+
 // LOGIN
 const login = async (req, res, next) => {
     try {
@@ -50,6 +52,7 @@ const login = async (req, res, next) => {
         console.log(err);
     }
 }
+
 // UPDATE USER
 const update = async (req, res, next) => {
     if (req.body.userId === req.params.id) {
@@ -73,6 +76,7 @@ const update = async (req, res, next) => {
     }
 
 }
+
 // FIND USER THROUGH EMAIL
 const userByEmail = async (req, res, next) => {
     try {
@@ -90,6 +94,7 @@ const userByEmail = async (req, res, next) => {
     }
 
 }
+
 // GET ALL USERS
 const allUsers = async (req, res, next) => {
     try {
@@ -101,6 +106,7 @@ const allUsers = async (req, res, next) => {
         console.log(err)
     }
 }
+
 // GET USER BY ID
 const getUsersById = async (req, res, next) => {
     try {
@@ -110,12 +116,13 @@ const getUsersById = async (req, res, next) => {
         next(err);
     }
 }
+
 // GET LOGGED IN USER DATA
 const getUserData = async (req, res, next) => {
     const email = req.query.email
     try {
         const getEventsData = await Events.find({ 'owner.email': email })
-        res.status(200).json({ getEventsData })
+        res.status(200).json(getEventsData)
         // console.log(getData)
     } catch (err) {
         next(err);
@@ -125,7 +132,7 @@ const getUserData = async (req, res, next) => {
 const deleteUsers = async (req, res, next) => {
     try {
         await User.findByIdAndDelete(req.params.id)
-        res.status(200).json('user has been deleted')
+        res.status(200).json('user deleted')
     } catch (err) {
         next(err);
     }

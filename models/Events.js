@@ -25,6 +25,20 @@ const reviewSchema = new mongoose.Schema({
 }, {
     timestamps: true,
 });
+const attandanceSchema = new mongoose.Schema({
+    username: {
+        type: String,
+    },
+    photos: {
+        type: String,
+    },
+    email: {
+        type: String,
+    }
+}, {
+    timestamps: true,
+});
+
 
 
 const EventSchema = new mongoose.Schema({
@@ -66,7 +80,7 @@ const EventSchema = new mongoose.Schema({
     price: {
         type: String,
     },
-   
+    attandance: [attandanceSchema],
     reviews: [reviewSchema],
 }, {
     timestamps: true
