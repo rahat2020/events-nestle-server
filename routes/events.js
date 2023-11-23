@@ -1,15 +1,13 @@
 const router = require('express').Router()
 const { createNewEventsn, allEvents, getEventsById,deleteEvents } = require('../controllers/events')
 
-// ADD Product
+// ADD EVENTS
 router.post('/add', createNewEventsn)
-// GET Product
+// GET EVENTS
 router.get('/get', allEvents)
-
-// GET Product BY ID
+// GET EVENTS BY ID
 router.get('/get/:id', getEventsById)
-
-// DELETE product
+// DELETE EVENTS
 router.delete('/delete/:id', deleteEvents)
 
 module.exports = router;

@@ -43,12 +43,9 @@ const EventSchema = new mongoose.Schema({
         type: String,
     },
     photos: {
-        type: [String],
-    },
-    available: {
         type: String,
     },
-    phone: {
+    available: {
         type: String,
     },
     location: {
@@ -69,9 +66,7 @@ const EventSchema = new mongoose.Schema({
     price: {
         type: String,
     },
-    rating: {
-        type: String,
-    },
+   
     reviews: [reviewSchema],
 }, {
     timestamps: true

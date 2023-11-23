@@ -25,7 +25,7 @@ const register = async (req, res, next) => {
             console.error(error);
             res.status(500).json('Internal Server Error');
         }
-        // next(err);
+        next(err);
         // console.log(err)
     }
 }
