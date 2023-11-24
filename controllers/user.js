@@ -12,8 +12,7 @@ const register = async (req, res, next) => {
             email: req.body.email,
             password: hash,
             photo: req.body.photo,
-            role: req.body.role,
-            isAdmin: req.body.isAdmin,
+            terms:req.body.terms
         })
         const saved = await user.save();
         saved && res.status(200).json('registration successfull');
