@@ -15,7 +15,7 @@ const register = async (req, res, next) => {
             terms:req.body.terms
         })
         const saved = await user.save();
-        saved && res.status(200).json('registration successfull');
+        saved && res.status(200).json( { message: 'registration successfull'});
     } catch (err) {
         if (err.code === 11000 && err.keyPattern && err.keyPattern.email) {
             // Duplicate key error for the 'email' field
